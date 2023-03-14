@@ -1,0 +1,65 @@
+PROGRAM SHOPPING cart
+
+START
+
+	IF punya akun
+
+		CALL Login()
+
+	ELSE IF tidak punya akun
+
+		CALL register()
+		CALL login()
+
+	ENDIF
+	
+	
+	WHILE ingin menambah produk 
+
+		READ produk
+
+        IF produk sudah ada di shopping cart
+
+            INCREMENT produk di shopping cart
+
+        ELSE IF produk belum ada
+
+            ADD produk ke shopping cart
+
+        ENDIF
+
+		
+		COMPUTE total belanja
+		
+		IF sudah selesai memilih produk
+			CALL checkout
+			keluar dari WHILE
+		
+		ENDIF
+			
+	ENDWHILE
+		
+	
+		
+	WHILE belum dibayar
+	
+		IF saldo cukup
+
+			pembayaran berhasil
+            sudah dibayar
+            keluar dari WHILE
+		
+		ELSE IF saldo tidak cukup
+			
+			pembayaran tidak berhasil
+            belum dibayar
+			
+		ENDIF
+	
+	ENDWHILE
+
+
+    DISPLAY detail pesanan
+    CALL sendEmailReceipt
+		
+END
